@@ -32,6 +32,9 @@ export default function ProductCard({ product }: any) {
         transition-all
         duration-300
         p-4
+        flex
+        flex-col
+        h-full
       "
     >
       {/* Tarjeta visual del producto */}
@@ -102,28 +105,30 @@ export default function ProductCard({ product }: any) {
 
       </p>
 
-      {/* Botón para ir al detalle */}
-      <Link href={`/products/${product.id}`}>
-        {/* Navega al detalle */}
+      <div className="mt-auto">
+        {/* Botón para ir al detalle */}
+        <Link href={`/products/${product.id}`}>
+          {/* Navega al detalle */}
 
-        <button
-          className="
-            mt-4
-            w-full
-            bg-black
-            text-white
-            py-2
-            rounded-lg
-            hover:bg-gray-800
-            transition
-          "
-        >
+          <button
+            className="
+              mt-4
+              w-full
+              bg-black
+              text-white
+              py-3
+              rounded-lg
+              hover:bg-gray-800
+              transition
+            "
+          >
 
-          View product
+            View product
 
-        </button>
+          </button>
 
-      </Link>
+        </Link>
+      </div>
 
     </div>
 
