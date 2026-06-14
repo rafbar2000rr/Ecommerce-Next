@@ -224,7 +224,7 @@ export default function UserOrdersPage() {
     <div className="max-w-4xl mx-auto space-y-6">
 
       <h1 className="text-2xl font-bold">
-        My Orders
+        Mis pedidos
       </h1>
 
       {/* FILTROS */}
@@ -232,7 +232,7 @@ export default function UserOrdersPage() {
 
         <input
 
-          placeholder="Search by order ID..."
+          placeholder="Buscar por ID de orden..."
 
           className="
             border p-2 rounded
@@ -265,19 +265,19 @@ export default function UserOrdersPage() {
         >
 
           <option value="all">
-            All
+            Todos
           </option>
 
           <option value="paid">
-            Paid
+            Pagado
           </option>
 
           <option value="shipped">
-            Shipped
+            Enviado
           </option>
 
           <option value="delivered">
-            Delivered
+            Entregado
           </option>
 
         </select>
@@ -299,7 +299,7 @@ export default function UserOrdersPage() {
 
         <div className="text-center text-gray-500 py-10">
 
-          No orders found
+          No se encontraron órdenes
 
         </div>
 
@@ -417,7 +417,7 @@ export default function UserOrdersPage() {
         {loading && (
 
           <p className="text-gray-500">
-            Loading...
+            Cargando...
           </p>
 
         )}
@@ -428,7 +428,7 @@ export default function UserOrdersPage() {
 
           <p className="text-gray-400 text-sm">
 
-            No more orders
+            No hay más órdenes
 
           </p>
 

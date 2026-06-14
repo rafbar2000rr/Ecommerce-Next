@@ -54,7 +54,7 @@ export default function CartView() {
           mb-6
         "
       >
-        Your Cart
+        Carrito de compras
       </h2>
 
       {/* Mensaje si no hay productos */}
@@ -62,7 +62,7 @@ export default function CartView() {
 
         <p className="text-gray-500">
 
-          Your cart is empty 🛒
+          Tu carrito está vacío 🛒
 
         </p>
 
@@ -210,7 +210,7 @@ export default function CartView() {
 
             >
 
-              Remove
+              Eliminar
 
             </button>
 

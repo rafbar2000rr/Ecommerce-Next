@@ -52,7 +52,7 @@ export default function Page() {
       if (!res.ok) {
 
         setError(
-          data.error || "Invalid credentials"
+          data.error || "Credenciales inválidas"
         )
 
         return
@@ -70,7 +70,7 @@ export default function Page() {
     } catch {
 
       // Error inesperado (servidor caído, red, etc.)
-      setError("Something went wrong")
+      setError("Ocurrió un error")
 
     } finally {
 
@@ -86,7 +86,7 @@ export default function Page() {
 
       {/* Título */}
       <h1 className="text-xl font-bold mb-4">
-        Login
+        Iniciar sesión
       </h1>
 
       {/* Error */}
@@ -98,7 +98,7 @@ export default function Page() {
 
       {/* Campo Email */}
       <input
-        placeholder="Email"
+        placeholder="Correo electrónico"
         className="border p-2 w-full mb-2"
         onChange={(e) =>
           setForm({
@@ -111,7 +111,7 @@ export default function Page() {
       {/* Campo Password */}
       <input
         type="password"
-        placeholder="Password"
+        placeholder="Contraseña"
         className="border p-2 w-full mb-4"
         onChange={(e) =>
           setForm({
@@ -129,18 +129,18 @@ export default function Page() {
       >
         {
           loading
-            ? "Logging in..."
-            : "Login"
+            ? "Iniciando sesión..."
+            : "Iniciar sesión"
         }
       </button>
       {/* Enlace a registro */}
       <p className="text-sm text-center mt-4">
-          Don't have an account?{" "}
+          ¿No tienes cuenta?{" "}
       <Link
         href="/register"
         className="text-blue-600 hover:underline">
-    
-        Sign up
+
+        Regístrate
       </Link>
       </p>
     </div>

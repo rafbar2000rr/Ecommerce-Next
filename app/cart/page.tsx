@@ -17,7 +17,7 @@ export default function CartPage() {
       {/* Contenedor principal con padding */}
 
       <h1 className="text-2xl font-bold mb-4">
-        Your Cart
+        Carrito de compras
       </h1>
       {/* Título de la página */}
 

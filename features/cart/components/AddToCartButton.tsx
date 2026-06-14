@@ -74,13 +74,13 @@ export default function AddToCartButton({
 
       >
 
-        Add to cart
+        Agregar al carrito
 
       </button>
 
       <Toast
 
-        message="Added to cart 🛒"
+        message="Producto añadido al carrito 🛒"
         // Texto mostrado en la notificación
 
         isVisible={showToast}

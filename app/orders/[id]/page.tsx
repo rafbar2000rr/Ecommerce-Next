@@ -66,7 +66,7 @@ export default function OrderDetailPage() {
       <div className="flex justify-center mt-20">
 
         <p className="text-gray-500">
-          Loading order...
+          Cargando orden...
         </p>
 
       </div>
@@ -192,11 +192,11 @@ export default function OrderDetailPage() {
 
               <p className="text-sm text-gray-500">
 
-                Quantity:
-                {" "}
-                {item.quantity}
+                  Cantidad:
+                  {" "}
+                  {item.quantity}
 
-              </p>
+                </p>
 
             </div>
 

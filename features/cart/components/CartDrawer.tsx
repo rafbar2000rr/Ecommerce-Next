@@ -123,7 +123,7 @@ export default function CartDrawer() {
 
             <h2 className="text-xl font-bold">
 
-              Cart
+              Carrito
 
             </h2>
 
@@ -153,7 +153,7 @@ export default function CartDrawer() {
 
               <p className="text-gray-500">
 
-                Empty cart
+                Tu carrito está vacío
 
               </p>
 
@@ -256,7 +256,7 @@ export default function CartDrawer() {
 
                 >
 
-                  ✕
+                  Eliminar
 
                 </button>
 
@@ -304,7 +304,7 @@ export default function CartDrawer() {
 
             >
 
-              Checkout
+              Finalizar compra
 
             </button>
 

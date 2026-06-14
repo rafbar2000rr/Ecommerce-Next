@@ -138,7 +138,7 @@ export default function CheckoutPage() {
       !form.address
     ) {
 
-      setError("Please fill all fields")
+      setError("Por favor completa todos los campos")
       return
 
     }
@@ -146,7 +146,7 @@ export default function CheckoutPage() {
     // Validación del carrito
     if (cart.length === 0) {
 
-      setError("Your cart is empty")
+      setError("Tu carrito está vacío")
       return
 
     }
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
       <div className="bg-white p-6 rounded-2xl shadow">
 
         <h2 className="text-xl font-bold mb-4">
-          Shipping info
+          Información de envío
         </h2>
 
         {/* Error */}
@@ -221,7 +221,7 @@ export default function CheckoutPage() {
           value={form.name}
           // Input controlado
 
-          placeholder="Full name"
+          placeholder="Nombre completo"
 
           className="w-full border p-2 rounded mb-3"
 
@@ -238,7 +238,7 @@ export default function CheckoutPage() {
           value={form.email}
           // Input controlado
 
-          placeholder="Email"
+          placeholder="Correo electrónico"
 
           className="w-full border p-2 rounded mb-3"
 
@@ -253,7 +253,7 @@ export default function CheckoutPage() {
           value={form.address}
           // Input controlado
 
-          placeholder="Address"
+          placeholder="Dirección"
 
           className="w-full border p-2 rounded mb-3"
 
@@ -274,8 +274,8 @@ export default function CheckoutPage() {
 
           {
             mutation.isPending
-              ? "Processing..."
-              : "Place Order"
+              ? "Procesando..."
+                : "Realizar pedido"
           }
 
         </button>

@@ -179,7 +179,7 @@ export default function RegisterPage() {
 
       <h2 className="text-xl font-bold">
 
-        Create account
+        Crear cuenta
 
       </h2>
 
@@ -201,7 +201,7 @@ export default function RegisterPage() {
 
           name="name"
 
-          placeholder="Full name"
+          placeholder="Nombre completo"
 
           value={form.name}
 
@@ -243,7 +243,7 @@ export default function RegisterPage() {
 
           type="email"
 
-          placeholder="Email"
+          placeholder="Correo electrónico"
 
           value={form.email}
 
@@ -284,7 +284,7 @@ export default function RegisterPage() {
 
           type="password"
 
-          placeholder="Password"
+          placeholder="Contraseña"
 
           value={form.password}
 
@@ -332,11 +332,11 @@ export default function RegisterPage() {
 
       >
 
-        {
+          {
 
           loading
-            ? "Creating..."
-            : "Sign up"
+            ? "Creando..."
+            : "Registrarse"
 
         }
 
