@@ -59,11 +59,11 @@ export default async function ProductDetail({
 
           </h1>
 
-          <p className="text-2xl text-green-600 mt-4 font-semibold">
+          <p className="text-sm text-gray-500">Precio</p>
+          <p className="text-2xl text-green-600 mt-1 font-semibold">
 
             $
             {product.price}
-            {/* Precio */}
 
           </p>
 
