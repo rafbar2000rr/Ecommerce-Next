@@ -22,9 +22,9 @@ import { getProducts } from "../services/getProducts"
 
 import ProductCard from "./ProductCard"
 // Componente que muestra una tarjeta individual
+import ClientProductList from "./ClientProductList"
 
 export default async function ProductList() {
-import ClientProductList from "./ClientProductList"
   // Componente asíncrono
 
   let products: any[] = []
@@ -34,12 +34,9 @@ import ClientProductList from "./ClientProductList"
   } catch (err: any) {
     console.error('ProductList error fetching products:', err)
 
-    return (
-      <div className="p-8 text-center text-red-600">
-        No se pudieron cargar los productos. Intenta de nuevo más tarde.
-      </div>
+    // Si la petición del servidor falla, renderizamos un fallback
+    // que cargue los productos desde el cliente.
     return <ClientProductList />
-    )
   }
 
   return (

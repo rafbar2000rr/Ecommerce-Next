@@ -1,5 +1,5 @@
 // ==========================================
-// MIDDLEWARE
+// PROXY
 // Se ejecuta antes de que una petición llegue
 // a una página o ruta de Next.js.
 //
@@ -11,7 +11,7 @@
 import { NextResponse } from "next/server" // Permite continuar o redirigir solicitudes
 import type { NextRequest } from "next/server" // Tipo para las solicitudes de Next.js
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const cookie = req.cookies.get("user") // Obtiene la cookie del usuario
 
   // Verifica si la ruta comienza con /admin
