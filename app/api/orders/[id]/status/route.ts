@@ -14,7 +14,7 @@ import { cookies } from "next/headers" // Permite acceder a las cookies
 
 export async function PATCH(
   req: Request, // Request recibido
-  { params }: { params: { id: string } } // Parámetros dinámicos de la URL
+   { params }: { params: Promise<{ id: string }> } // Parámetros dinámicos de la URL
 ) {
 
   try {
@@ -70,7 +70,7 @@ export async function PATCH(
 
     await connectDB()
     // Conecta a MongoDB
-
+    const { id } = await params
     const updated = await Order.findByIdAndUpdate(
 
       params.id,
