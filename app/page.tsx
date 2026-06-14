@@ -26,9 +26,7 @@ export default function Home() {
           <p className="text-sm uppercase tracking-[0.3em] text-white/80 mb-3">
             Bienvenido a MiTienda
           </p>
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Descubre productos únicos para cada ocasión.
-          </h1>
+          {/* Encabezado promocional retirado a petición del usuario */}
           <p className="mt-4 text-white/80 max-w-2xl">
             Compra artículos seleccionados con envío rápido y una experiencia moderna pensada para que encuentres lo que más te gusta.
           </p>
