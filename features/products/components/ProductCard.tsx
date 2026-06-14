@@ -24,14 +24,17 @@ export default function ProductCard({ product }: any) {
 
     <div
       className="
-        bg-white
-        rounded-2xl
+        bg-gradient-to-br
+        from-white
+        via-slate-50
+        to-slate-100
+        rounded-3xl
         shadow-sm
-        hover:shadow-lg
+        hover:shadow-xl
         hover:-translate-y-1
         transition-all
         duration-300
-        p-4
+        p-5
         flex
         flex-col
         h-full
@@ -48,7 +51,8 @@ export default function ProductCard({ product }: any) {
           {/* Contenedor de la imagen */}
           <div
             className="
-              h-48
+              h-52
+              sm:h-48
               flex
               items-center
               justify-center
@@ -75,10 +79,11 @@ export default function ProductCard({ product }: any) {
           {/* Título */}
           <h2
             className="
-              text-sm
-              font-medium
+              text-base
+              font-semibold
               mt-3
               line-clamp-2
+              text-slate-900
             "
           >
 
@@ -96,7 +101,8 @@ export default function ProductCard({ product }: any) {
         className="
           text-lg
           font-bold
-          mt-2
+          mt-3
+          text-slate-900
         "
       >
 
@@ -112,19 +118,29 @@ export default function ProductCard({ product }: any) {
 
           <button
             className="
-              mt-4
+              mt-5
               w-full
               bg-black
               text-white
               py-3
-              rounded-lg
-              hover:bg-gray-800
+              rounded-2xl
+              hover:bg-slate-900
               transition
+              inline-flex
+              items-center
+              justify-center
+              gap-2
             "
           >
-
-            View product
-
+            <span>View product</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m12-9l2 9m-9-4h4" />
+            </svg>
           </button>
 
         </Link>

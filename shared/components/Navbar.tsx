@@ -72,13 +72,21 @@ export default function Navbar() {
           {/* 🛒 Carrito */}
           <button
             onClick={openCart}
-            className="relative text-2xl"
+            className="relative flex items-center justify-center w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 transition text-slate-700"
+            aria-label="Open cart"
           >
-            🛒
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-6 w-6"
+            >
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m12-9l2 9m-9-4h4" />
+            </svg>
 
             {totalItems > 0 && (
               <span
-                className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                className="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full"
               >
                 {totalItems}
               </span>
