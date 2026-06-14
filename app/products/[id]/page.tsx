@@ -18,11 +18,11 @@ export default async function ProductDetail({
 
 }: {
 
-  params: { id: string }
+  params: Promise<{ id: string }>
 
 }) {
 
-  const { id } = params
+  const { id } = await params
   // Obtiene el parámetro dinámico de la URL
 
   const product = await getProductById(id)
