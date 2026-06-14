@@ -26,9 +26,19 @@ import ProductCard from "./ProductCard"
 export default async function ProductList() {
   // Componente asíncrono
 
-  const products = await getProducts()
-  // Obtiene la lista de productos
-  // Espera la respuesta antes de renderizar
+  let products: any[] = []
+
+  try {
+    products = await getProducts()
+  } catch (err: any) {
+    console.error('ProductList error fetching products:', err)
+
+    return (
+      <div className="p-8 text-center text-red-600">
+        No se pudieron cargar los productos. Intenta de nuevo más tarde.
+      </div>
+    )
+  }
 
   return (
 
