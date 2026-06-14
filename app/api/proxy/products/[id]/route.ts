@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 
-export async function GET(_req: Request, { params }: { params: { id: string } }) {
-  const { id } = params
+export async function GET(_req: Request, context: { params: Promise<{ id: string }> }) {
+  const { id } = await context.params
 
   if (!id) {
     return NextResponse.json({ error: "Missing product id" }, { status: 400 })
