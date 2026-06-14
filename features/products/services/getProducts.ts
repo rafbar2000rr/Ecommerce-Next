@@ -13,10 +13,24 @@
 
 export async function getProducts() {
   try {
-    console.log('getProducts: calling fakestoreapi')
-    const res = await fetch("https://fakestoreapi.com/products", {
-      cache: "no-store",
-    })
+    console.log('getProducts: attempting internal /api/products (or fallback to external)')
+
+    // Try to call the internal API route via an absolute origin when available (Vercel or custom env)
+    const vercelUrl = process.env.VERCEL_URL
+    const nextPublic = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_VERCEL_URL
+    const origin = vercelUrl ? `https://${vercelUrl}` : nextPublic ? nextPublic.replace(/\/$/, '') : undefined
+
+    let res
+
+    if (origin) {
+      const apiUrl = `${origin}/api/products`
+      console.log('getProducts: calling', apiUrl)
+      res = await fetch(apiUrl)
+    } else {
+      // No origin available at build time — fetch external API with ISR caching
+      console.log('getProducts: no origin detected, calling external fakestoreapi with revalidate')
+      res = await fetch("https://fakestoreapi.com/products", { next: { revalidate: 60 } })
+    }
 
     if (!res.ok) {
       const body = await res.text().catch(() => "<no body>")
