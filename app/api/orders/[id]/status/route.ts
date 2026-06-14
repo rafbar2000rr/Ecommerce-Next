@@ -70,10 +70,12 @@ export async function PATCH(
 
     await connectDB()
     // Conecta a MongoDB
+    
     const { id } = await params
+      
     const updated = await Order.findByIdAndUpdate(
 
-      params.id,
+      id,
       // ID de la orden obtenido desde la URL
 
       {
