@@ -52,19 +52,19 @@ export default function Navbar() {
           href="/"
           className="text-xl font-bold"
         >
-          MyStore
+          MiTienda
         </Link>
 
         <div className="flex items-center gap-6">
           {/* Menú de navegación */}
 
           <Link href="/">
-            Home
+            Inicio
           </Link>
 
           {user && (
             <Link href="/orders">
-              My Orders
+              Mis pedidos
             </Link>
           )}
           {/* Solo visible si hay usuario */}
@@ -72,14 +72,14 @@ export default function Navbar() {
           {/* 🛒 Carrito */}
           <button
             onClick={openCart}
-            className="relative flex items-center justify-center w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 transition text-slate-700"
-            aria-label="Open cart"
+            className="relative flex items-center justify-center w-14 h-14 rounded-full bg-fuchsia-600 hover:bg-fuchsia-500 transition text-white shadow-lg"
+            aria-label="Abrir carrito"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-6 w-6"
+              className="h-8 w-8"
             >
               <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m12-9l2 9m-9-4h4" />
             </svg>
@@ -104,7 +104,7 @@ export default function Navbar() {
               href="/login"
               className="text-sm bg-black text-white px-3 py-1 rounded"
             >
-              Login
+              Iniciar sesión
             </Link>
           ) : (
             <div className="flex items-center gap-3">
@@ -116,9 +116,9 @@ export default function Navbar() {
 
               <button
                 onClick={handleLogout}
-                className="text-sm text-red-500 hover:underline"
+                className="text-sm text-rose-500 hover:underline"
               >
-                Logout
+                Cerrar sesión
               </button>
             </div>
           )}

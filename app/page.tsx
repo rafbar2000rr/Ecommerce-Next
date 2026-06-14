@@ -21,23 +21,23 @@ export default function Home() {
     <main className="p-6">
       {/* Contenedor principal con padding */}
 
-      <section className="mb-8 rounded-3xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 text-white shadow-2xl">
+      <section className="mb-8 rounded-3xl bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-500 p-8 text-white shadow-2xl">
         <div className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.3em] text-slate-400 mb-3">
-            Welcome to MyStore
+          <p className="text-sm uppercase tracking-[0.3em] text-white/80 mb-3">
+            Bienvenido a MiTienda
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Discover curated products for every moment.
+            Descubre productos únicos para cada ocasión.
           </h1>
-          <p className="mt-4 text-slate-300 max-w-2xl">
-            Shop the latest items with fast shipping, handcrafted layouts, and a modern shopping experience designed to help you find what you love.
+          <p className="mt-4 text-white/80 max-w-2xl">
+            Compra artículos seleccionados con envío rápido y una experiencia moderna pensada para que encuentres lo que más te gusta.
           </p>
         </div>
       </section>
 
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">Products</h2>
-        <span className="text-sm text-slate-500">Browse our collection</span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
+        <h2 className="text-2xl font-bold">Productos</h2>
+        <span className="text-sm text-slate-500">Explora nuestra colección</span>
       </div>
 
       <ProductList />

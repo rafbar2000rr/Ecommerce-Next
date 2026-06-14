@@ -132,7 +132,7 @@ export default function ProductCard({ product }: any) {
               gap-2
             "
           >
-            <span>View product</span>
+            <span>Ver producto</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
