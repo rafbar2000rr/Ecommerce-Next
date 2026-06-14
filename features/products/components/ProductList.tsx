@@ -24,6 +24,7 @@ import ProductCard from "./ProductCard"
 // Componente que muestra una tarjeta individual
 
 export default async function ProductList() {
+import ClientProductList from "./ClientProductList"
   // Componente asíncrono
 
   let products: any[] = []
@@ -37,6 +38,7 @@ export default async function ProductList() {
       <div className="p-8 text-center text-red-600">
         No se pudieron cargar los productos. Intenta de nuevo más tarde.
       </div>
+    return <ClientProductList />
     )
   }
 
