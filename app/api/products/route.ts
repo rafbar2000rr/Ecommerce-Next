@@ -4,7 +4,7 @@ export async function GET() {
   const url = "https://fakestoreapi.com/products"
 
   try {
-    const res = await fetch(url, { next: { revalidate: 60 } })
+    const res = await fetch(url, { next: { revalidate: 300 } })
 
     const text = await res.text().catch(() => "<no body>")
 
@@ -21,7 +21,7 @@ export async function GET() {
     return NextResponse.json(data, {
       status: 200,
       headers: {
-        "cache-control": "public, s-maxage=60, stale-while-revalidate=59",
+        "cache-control": "public, s-maxage=300, stale-while-revalidate=299",
       },
     })
   } catch (err) {
