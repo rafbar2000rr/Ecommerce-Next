@@ -12,24 +12,22 @@
 // No depende de React ni de componentes.
 
 export async function getProducts() {
-
-  const res = await fetch(
-    "https://fakestoreapi.com/products",
-    {
+  try {
+    console.log('getProducts: calling fakestoreapi')
+    const res = await fetch("https://fakestoreapi.com/products", {
       cache: "no-store",
-      // Fuerza una petición nueva cada vez
-      // Evita que Next.js use caché
+    })
+
+    if (!res.ok) {
+      const body = await res.text().catch(() => "<no body>")
+      const msg = `Error fetching products: ${res.status} ${res.statusText} - ${body}`
+      console.error(msg)
+      throw new Error(msg)
     }
-  )
 
-  if (!res.ok) {
-    // Verifica si la respuesta HTTP fue exitosa
-
-    throw new Error("Error fetching products")
-    // Lanza un error si la API respondió con error
+    return res.json()
+  } catch (err: any) {
+    console.error('getProducts network/error:', err)
+    throw new Error(`Error fetching products: ${err?.message || String(err)}`)
   }
-
-  return res.json()
-  // Convierte automáticamente el JSON recibido
-  // en un arreglo de objetos JavaScript
 }
