@@ -23,6 +23,9 @@ import {
 import { useUser } from "@/hooks/useUser"
 // Hook para obtener el usuario logueado
 
+import { apiCall } from "@/lib/api"
+// Función auxiliar para llamadas a API
+
 // Tipo de producto
 type Product = {
 
@@ -149,7 +152,7 @@ export function CartProvider({
         try {
 
           const res =
-            await fetch("/api/cart")
+            await apiCall("/api/cart")
           // Obtiene carrito del backend
 
           if (res.ok) {
@@ -198,7 +201,7 @@ export function CartProvider({
         setCart(merged)
 
         // Guardar carrito fusionado
-        await fetch("/api/cart", {
+        await apiCall("/api/cart", {
 
           method: "POST",
 
@@ -226,7 +229,7 @@ export function CartProvider({
         try {
 
           const res =
-            await fetch("/api/cart")
+            await apiCall("/api/cart")
 
           if (res.ok) {
 
@@ -294,7 +297,7 @@ export function CartProvider({
 
           try {
 
-            await fetch("/api/cart", {
+            await apiCall("/api/cart", {
 
               method: "POST",
 
@@ -483,7 +486,7 @@ export function CartProvider({
 
     if (user) {
 
-      fetch("/api/cart", {
+      apiCall("/api/cart", {
 
         method: "POST",
 

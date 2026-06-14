@@ -8,6 +8,7 @@
 
 import { useEffect, useState } from "react" // Hooks de React
 import OrderStatusTracker from "@/shared/components/OrderStatusTracker" // Componente visual para mostrar el estado del pedido
+import { apiCall } from "@/lib/api" // Función auxiliar para llamadas a API
 
 export default function AdminOrdersPage() { // Componente principal
 
@@ -17,7 +18,7 @@ export default function AdminOrdersPage() { // Componente principal
   // 🔥 Se ejecuta una sola vez cuando el componente se monta
   useEffect(() => {
 
-    fetch("/api/orders") // Solicita todas las órdenes
+    apiCall("/api/orders") // Solicita todas las órdenes
       .then((res) => res.json()) // Convierte la respuesta a JSON
       .then((data) => {
 
@@ -36,7 +37,7 @@ export default function AdminOrdersPage() { // Componente principal
 
     try {
 
-      const res = await fetch(
+      const res = await apiCall(
         `/api/orders/${id}/status`, // Endpoint para actualizar estado
         {
           method: "PATCH", // Método HTTP PATCH

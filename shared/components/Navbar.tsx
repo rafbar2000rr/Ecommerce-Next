@@ -12,6 +12,7 @@ import { useCart } from "@/features/cart/context/CartContext" // Contexto del ca
 import { useUser } from "@/hooks/useUser" // Hook para obtener usuario logueado
 import { useRouter } from "next/navigation" // Navegación programática
 import { useQueryClient } from "@tanstack/react-query" // Cliente global de React Query
+import { apiCall } from "@/lib/api" // Función auxiliar para llamadas a API
 
 export default function Navbar() {
   const { cart, openCart, clearCart } = useCart() // Datos y acciones del carrito
@@ -27,7 +28,7 @@ export default function Navbar() {
   // 🔥 LOGOUT PRO
   const handleLogout = async () => {
     try {
-      await fetch("/api/logout", { method: "POST" }) // Elimina cookie de sesión
+      await apiCall("/api/logout", { method: "POST" }) // Elimina cookie de sesión
 
       queryClient.setQueryData(["me"], null) // Limpia usuario en caché
 

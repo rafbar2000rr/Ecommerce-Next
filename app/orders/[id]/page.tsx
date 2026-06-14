@@ -12,6 +12,7 @@
 import { useEffect, useState } from "react" // Hooks de React
 import { useParams } from "next/navigation" // Obtiene parámetros de la URL
 import OrderTracking from "@/shared/components/OrderTracking" // Componente visual de seguimiento
+import { apiCall } from "@/lib/api" // Función auxiliar para llamadas a API
 
 export default function OrderDetailPage() {
 
@@ -31,7 +32,7 @@ export default function OrderDetailPage() {
 
     const fetchOrder = () => {
 
-      fetch(`/api/orders/${id}`)
+      apiCall(`/api/orders/${id}`)
       // Solicita la orden al backend
 
         .then((res) => res.json())

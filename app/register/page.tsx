@@ -21,6 +21,7 @@
 
 import { useState } from "react" // Hook para manejar estado
 import { useRouter } from "next/navigation" // Navegación programática
+import { apiCall } from "@/lib/api" // Función auxiliar para llamadas a API
 
 export default function RegisterPage() {
 
@@ -85,7 +86,7 @@ export default function RegisterPage() {
     setErrors({})
     // Limpia errores anteriores
 
-    const res = await fetch(
+    const res = await apiCall(
 
       "/api/register",
 

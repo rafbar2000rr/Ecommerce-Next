@@ -12,6 +12,7 @@ import { useState } from "react" // Hook para manejar estado local
 import { useRouter } from "next/navigation" // Navegación programática
 import { useQueryClient } from "@tanstack/react-query" // Acceso a la caché global de React Query
 import Link from "next/link"
+import { apiCall } from "@/lib/api" // Función auxiliar para llamadas a API
 
 export default function Page() {
 
@@ -37,7 +38,7 @@ export default function Page() {
     try {
 
       // Envía email y password al backend
-      const res = await fetch("/api/login", {
+      const res = await apiCall("/api/login", {
         method: "POST", // Método HTTP
         headers: {
           "Content-Type": "application/json",

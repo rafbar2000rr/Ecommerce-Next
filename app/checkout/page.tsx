@@ -13,6 +13,7 @@ import { useCart } from "@/features/cart/context/CartContext" // Hook para acced
 import { useState } from "react" // Hook para estado local
 import { useRouter } from "next/navigation" // Navegación programática
 import { useMutation, useQueryClient } from "@tanstack/react-query" // React Query
+import { apiCall } from "@/lib/api" // Función auxiliar para llamadas a API
 
 export default function CheckoutPage() {
 
@@ -69,7 +70,7 @@ export default function CheckoutPage() {
 
     mutationFn: async (orderData: any) => {
 
-      const res = await fetch(
+      const res = await apiCall(
 
         "/api/orders",
 

@@ -22,21 +22,36 @@ export async function getProductById(id: string) {
     // Lanza un error si no se recibió ID
   }
 
-  const res = await fetch(
-    `https://fakestoreapi.com/products/${id}`,
-    {
-      cache: "no-store",
-      // Fuerza una petición nueva en cada solicitud
-      // Evita que Next.js use caché
-    }
-  )
+  const url = `https://fakestoreapi.com/products/${id}`
+
+  const res = await fetch(url, {
+    cache: "no-store",
+    // Agregamos headers mínimos para evitar bloqueos por User-Agent
+    headers: {
+      Accept: "application/json",
+      "User-Agent": "Mozilla/5.0 (compatible; Next.js)",
+    },
+  })
 
   if (!res.ok) {
     // Verifica si la respuesta fue exitosa
 
-    throw new Error(
-      `HTTP error! status: ${res.status}`
-    )
+    // Si recibimos 403, intentamos un fallback vía un proxy público
+    if (res.status === 403) {
+      try {
+        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+        const proxyRes = await fetch(proxyUrl, { cache: "no-store" })
+        if (proxyRes.ok) {
+          const proxyText = await proxyRes.text()
+          if (!proxyText) throw new Error("Empty response from proxy")
+          return JSON.parse(proxyText)
+        }
+      } catch {
+        // si el proxy falla, seguimos y lanzamos el error original abajo
+      }
+    }
+
+    throw new Error(`HTTP error! status: ${res.status}`)
     // Muestra el código HTTP recibido
   }
 
