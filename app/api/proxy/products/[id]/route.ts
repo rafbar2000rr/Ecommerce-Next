@@ -2,8 +2,19 @@ import { NextResponse } from "next/server"
 
 export const dynamic = "force-dynamic"
 
-export async function GET(_req: Request, { params }: { params: { id: string } }) {
-  const { id } = params
+
+
+
+export async function GET(
+  _req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params
+
+  
+}
+
+
 
   if (!id) {
     return NextResponse.json({ error: "Missing product id" }, { status: 400 })
