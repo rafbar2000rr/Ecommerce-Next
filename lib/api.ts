@@ -18,11 +18,26 @@ export function getApiUrl() {
     return process.env.NEXT_PUBLIC_BASE_URL
   }
 
+  // En Vercel la URL pública está en VERCEL_URL (sin esquema)
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`
+  }
+
   // Default para desarrollo local
-  return "http://localhost:3000"
+  // Si no hay una URL pública configurada, devolver cadena vacía
+  // para permitir fetch relativo a rutas internas (`/api/...`).
+  // En servidor Next.js, fetch con URL relativa funcionará contra la misma aplicación.
+  return ""
 }
 
 export async function apiCall(endpoint: string, options?: RequestInit) {
-  const url = `${getApiUrl()}${endpoint}`
-  return fetch(url, options)
+  const base = getApiUrl()
+  const url = `${base}${endpoint}`
+
+  try {
+    return await fetch(url, options)
+  } catch (err) {
+    // Re-lanzar con contexto para facilitar debugging en logs de servidor
+    throw new Error(`apiCall failed fetching ${url}: ${err}`)
+  }
 }

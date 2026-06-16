@@ -23,9 +23,29 @@ export async function getProductById(id: string) {
 
   // Usamos la ruta proxy interna para evitar bloqueos desde Vercel/Edge
   // Llamamos a `apiCall` para que la URL base sea correcta en server y client
-  const res = await apiCall(`/api/proxy/products/${id}`)
+  let res
+
+  try {
+    res = await apiCall(`/api/proxy/products/${id}`)
+  } catch (err) {
+    // si la llamada al proxy falla por red, intentaremos llamar directamente
+    // al upstream como fallback
+    console.warn("Proxy call failed, falling back to direct fetch:", err)
+    res = await fetch(`https://fakestoreapi.com/products/${id}`, { cache: "no-store" })
+  }
 
   if (!res.ok) {
+    // Si el proxy respondió 403 (o cualquier otro código), intentar fallback directo
+    if (res.status === 403) {
+      const fallback = await fetch(`https://fakestoreapi.com/products/${id}`, { cache: "no-store" })
+      if (!fallback.ok) {
+        throw new Error(`HTTP error! status: ${fallback.status}`)
+      }
+      const fbText = await fallback.text()
+      if (!fbText) throw new Error("Empty response from API")
+      return JSON.parse(fbText)
+    }
+
     throw new Error(`HTTP error! status: ${res.status}`)
   }
 
