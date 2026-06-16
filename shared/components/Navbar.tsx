@@ -73,7 +73,7 @@ export default function Navbar() {
           {/* 🛒 Carrito */}
           <button
             onClick={openCart}
-            className="relative flex items-center justify-center w-14 h-14 rounded-full bg-fuchsia-600 hover:bg-fuchsia-500 transition text-white shadow-lg"
+            className="relative flex items-center justify-center w-14 h-14 rounded-full bg-fuchsia-600 hover:bg-fuchsia-500 hover:scale-[1.02] transition text-white shadow-lg cursor-pointer"
             aria-label="Abrir carrito"
           >
             <svg
@@ -103,7 +103,7 @@ export default function Navbar() {
           ) : !user ? (
             <Link
               href="/login"
-              className="text-sm bg-black text-white px-3 py-1 rounded"
+              className="text-sm bg-black text-white px-3 py-1 rounded cursor-pointer hover:scale-[1.02] transition"
             >
               Iniciar sesión
             </Link>

@@ -126,6 +126,8 @@ export default function ProductCard({ product }: any) {
               rounded-2xl
               hover:bg-slate-900
               transition
+              cursor-pointer
+              hover:scale-[1.02]
               inline-flex
               items-center
               justify-center

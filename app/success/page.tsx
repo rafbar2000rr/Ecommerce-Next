@@ -26,13 +26,13 @@ function SuccessContent() {
         <div className="flex gap-3 justify-center">
           <button
             onClick={() => router.push("/orders")}
-            className="bg-black text-white px-6 py-2 rounded-lg"
+            className="bg-black text-white px-6 py-2 rounded-lg cursor-pointer hover:scale-[1.02] hover:bg-slate-900 transition"
           >
             Ver mis pedidos
           </button>
           <button
             onClick={() => router.push("/")}
-            className="border px-6 py-2 rounded-lg"
+            className="border px-6 py-2 rounded-lg cursor-pointer hover:scale-[1.02] transition"
           >
             Seguir comprando
           </button>

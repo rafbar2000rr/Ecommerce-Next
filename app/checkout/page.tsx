@@ -269,7 +269,11 @@ export default function CheckoutPage() {
           disabled={mutation.isPending}
           // Deshabilitado durante la petición
 
-          className="w-full bg-black text-white py-3 rounded-lg mt-4 disabled:opacity-50"
+          className={`w-full py-3 rounded-lg mt-4 disabled:opacity-50 font-semibold transition-all duration-300 flex items-center justify-center gap-2
+            ${mutation.isPending
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-black text-white hover:bg-gray-800 hover:scale-[1.02] cursor-pointer"
+            }`}
 
         >
 

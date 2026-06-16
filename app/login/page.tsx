@@ -126,7 +126,7 @@ export default function Page() {
       <button
         onClick={handleLogin}
         disabled={loading} // Evita múltiples clics
-        className="bg-black text-white w-full p-2"
+        className="bg-black text-white w-full p-2 transition hover:scale-[1.02] hover:bg-slate-900 cursor-pointer disabled:opacity-50"
       >
         {
           loading

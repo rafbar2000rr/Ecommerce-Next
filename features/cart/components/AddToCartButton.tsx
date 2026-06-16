@@ -70,6 +70,10 @@ export default function AddToCartButton({
           text-white
           py-2
           rounded-lg
+          transition
+          cursor-pointer
+          hover:scale-[1.02]
+          hover:bg-slate-900
         "
 
       >
