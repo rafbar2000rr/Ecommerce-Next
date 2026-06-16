@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server"
 
-export async function GET(_req: Request, context: { params: Promise<{ id: string }> }) {
-  const { id } = await context.params
+export const dynamic = "force-dynamic"
+
+export async function GET(_req: Request, { params }: { params: { id: string } }) {
+  const { id } = params
 
   if (!id) {
     return NextResponse.json({ error: "Missing product id" }, { status: 400 })
@@ -15,7 +17,6 @@ export async function GET(_req: Request, context: { params: Promise<{ id: string
       cache: "no-store",
       headers: {
         Accept: "application/json",
-        "User-Agent": "Mozilla/5.0 (compatible; Vercel)",
       },
     })
 
